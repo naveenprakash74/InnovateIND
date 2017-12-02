@@ -27,7 +27,7 @@ def speedControl():
     p.start(0)
     q.start(0)
     try:
-		for i in range(50):
+	for i in range(50):
             p.ChangeDutyCycle(100-i)
             q.ChangeDutyCycle(100-i)
             time.sleep(0.02)
@@ -53,19 +53,19 @@ def speedBreak():
 	p.start(0)
 	q.start(0)
 	try:
-        dist1=distance()
-        meter1=dist1/100.0
-	print ("Measured Distance = %.1f m" %meter1)
-        if(meter1<1):
-            print "break"
-            p.ChangeDutyCycle(0)
-            q.ChangeDutyCycle(0)
-        elif(meter1>1 and meter1<2):
-            print "speed decresing"
-            speedControl()
-        else:
-            forward()
-            time.sleep(0.02)
+        	dist1=distance()
+        	meter1=dist1/100.0
+		print ("Measured Distance = %.1f m" %meter1)
+        	if(meter1<1):
+            		print "break"
+            		p.ChangeDutyCycle(0)
+            		q.ChangeDutyCycle(0)
+        	elif(meter1>1 and meter1<2):
+            		print "speed decresing"
+            		speedControl()
+        	else:
+            		forward()
+            		time.sleep(0.02)
         except KeyboardInterrupt:
             pass
 
@@ -74,7 +74,7 @@ def speedBreak():
 
 def distance():
         # set Trigger to HIGH
-		GPIO.output(GPIO_TRIGGER, True)
+	GPIO.output(GPIO_TRIGGER, True)
 
         # set Trigger after 0.01ms to LOW
         time.sleep(0.00001)
@@ -109,7 +109,7 @@ if __name__ == '__main__':
             meter=dist/100.0
             if(meter>3):
                 print "go ahead"
-				forward()
+		forward()
             elif(meter>1 and meter<2):
                 print "speed decresing"
                 speedControl()
